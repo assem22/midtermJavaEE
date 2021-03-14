@@ -31,7 +31,7 @@
 			%>
 			<tr>
 				<td align="center"><%=movie.getMovieName()%></td>
-				<td align="center">Rs. <%=movie.getMoviePrice()%></td>
+				<td align="center"><%=movie.getMoviePrice()%></td>
 				<td align="center"><%=movie.getMovieYear()%></td>
 				<td align="center"><a
 					href="../EditMovieServlet?movieId=<%=movie.getMovieId()%>">

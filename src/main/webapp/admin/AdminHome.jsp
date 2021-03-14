@@ -11,7 +11,11 @@
     <title>Admin Home Page</title>
 </head>
 <body>
+<h1>Admin Home Page</h1>
     <li><a href="AddMovie.jsp">New Movie</a></li>
     <li><a href="ListMovies.jsp">List Movie</a></li>
+    <a href="../AdminLogoutServlet">
+        <button type="button">Logout</button>
+    </a>
 </body>
 </html>

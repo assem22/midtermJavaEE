@@ -74,6 +74,28 @@ public class MyDao {
         return false;
     }
 
+    public static boolean addNewUser(User newUser) {
+        try{
+            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, user, password)){
+
+                String sql = "INSERT INTO users (username, user_password, user_email) Values (?, ?, ?)";
+                try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
+                    preparedStatement.setString(1, newUser.getUsername());
+                    preparedStatement.setString(2, newUser.getUser_password());
+                    preparedStatement.setString(3, newUser.getEmail());
+                    preparedStatement.executeUpdate();
+
+                    return true;
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return false;
+    }
+
 
     public ArrayList<Movie> select() {
 

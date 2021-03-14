@@ -22,7 +22,7 @@ public class AdminLogoutServlet extends HttpServlet {
 		HttpSession adminSession = request.getSession();
 		adminSession.setAttribute("admin_status", "false");
 		adminSession.invalidate();
-		response.sendRedirect("AdminLogin.jsp");	
+		response.sendRedirect("index.jsp");
 	}
 
 }

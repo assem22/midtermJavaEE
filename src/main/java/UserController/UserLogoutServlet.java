@@ -23,6 +23,6 @@ public class UserLogoutServlet extends HttpServlet {
 		session.setAttribute("status", "false");
 		session.setAttribute("user", "");
 		session.invalidate();
-		response.sendRedirect("Login.jsp");	
+		response.sendRedirect("index.jsp");
 	}
 }

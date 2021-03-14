@@ -64,5 +64,8 @@
         %>
     </table>
 </div>
+<a href="../UserLogoutServlet">
+    <button type="button">Logout</button>
+</a>
 </body>
 </html>

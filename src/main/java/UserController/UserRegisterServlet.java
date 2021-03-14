@@ -1,5 +1,6 @@
 package UserController;
 
+import DAO.MyDao;
 import Model.User;
 
 import javax.servlet.ServletException;
@@ -31,9 +32,8 @@ public class UserRegisterServlet extends HttpServlet {
 				newUser.setUser_password(formPassword);
 				newUser.setEmail(formEmail);
 
-//				boolean isUserRegistered = AdminDbDAO.addNewUser(newUser);
-				boolean isUserRegistered = true;
-				
+				boolean isUserRegistered = MyDao.addNewUser(newUser);
+
 				response.setContentType("text/html");
 				if(isUserRegistered){
 					out.print("<h3>You are Registered Successfully!!!!!!</h3>");
