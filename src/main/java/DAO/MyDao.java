@@ -100,6 +100,33 @@ public class MyDao {
         return movies;
     }
 
+    public ArrayList<Ticket> ticketList(int user_id) {
+
+        ArrayList<Ticket> tickets = new ArrayList<>();
+        try{
+            Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, user, password)){
+
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM tickets WHERE user_id="+user_id);
+                while(resultSet.next()){
+                    int id = resultSet.getInt(1);
+                    int amount = resultSet.getInt(2);
+                    String movieName = resultSet.getString(3);
+                    double price = resultSet.getDouble(4);
+                    double total = resultSet.getDouble(5);
+                    int userId = resultSet.getInt(6);
+                    Ticket ticket = new Ticket(id, amount, movieName, price, total, userId);
+                    tickets.add(ticket);
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return tickets;
+    }
+
     public Movie selectOne(int id) {
 
         Movie movie = null;
@@ -158,7 +185,7 @@ public class MyDao {
             Class.forName("org.postgresql.Driver").getDeclaredConstructor().newInstance();
             try (Connection conn = DriverManager.getConnection(url, user, password)){
 
-                String sql = "INSERT INTO movies (amount, movie_name, ticket_cost, total_cost, user_id)" +
+                String sql = "INSERT INTO tickets (amount, movie_name, ticket_cost, total_cost, user_id)" +
                         " Values (?, ?, ?, ?, ?)";
                 try(PreparedStatement preparedStatement = conn.prepareStatement(sql)){
                     preparedStatement.setInt(1, ticket.getAmount());
@@ -239,8 +266,7 @@ public class MyDao {
                         int userId = resultSet.getInt(1);
                         String name = resultSet.getString(2);
                         String user_password = resultSet.getString(3);
-                        String userEmail = resultSet.getString(3);
-                        int year = resultSet.getInt(4);
+                        String userEmail = resultSet.getString(4);
                         user1 = new User(userId, name, user_password, userEmail);
                     }
                 }

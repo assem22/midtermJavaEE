@@ -5,6 +5,8 @@ import Model.Movie;
 import Model.Ticket;
 import Model.User;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,38 +16,26 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "BuyTicketServlet")
+@WebServlet("/BuyTicketServlet")
 public class BuyTicketServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Ticket ticket = new Ticket();
-        String movieId = request.getParameter("movieId");
         boolean status = false;
         PrintWriter out = response.getWriter();
         response.setContentType("text/html");
 
         User user = new User();
         Movie movie = new Movie();
+        movie = (Movie) request.getSession().getAttribute("movie");
 
-        if(movieId != null && !(movieId.equals(""))){
-            try {
-                movie = new MyDao().selectOne(Integer.parseInt(movieId));
-            } catch (Exception e) {
-                request.getSession().setAttribute("exception",e.getMessage());
-            }
-        }else{
-            request.getSession().setAttribute("message", "Error !!!! Please select one Category!!!!!!");
-            response.sendRedirect("user/Menu.jsp");
-        }
-
-//        String movieName= request.getParameter("movie_name");
-//        String ticket_cost = request.getParameter("ticket_cost");
-//        String total_cost = request.getParameter("total_cost");
         String amount = request.getParameter("amount");
         String user_email = request.getParameter("user_email");
 
-        if(user_email != null && !(user_email.equals(""))){
+        if(movie.getMovieId() != 0  && user_email != null && !(user_email.equals(""))){
             try {
+                movie = new MyDao().selectOne(movie.getMovieId());
                 user = new MyDao().selectUser(user_email);
+                request.getSession().setAttribute("user_session", user);
             } catch (Exception e) {
                 request.getSession().setAttribute("exception",e.getMessage());
             }
@@ -54,7 +44,6 @@ public class BuyTicketServlet extends HttpServlet {
             response.sendRedirect("user/Menu.jsp");
         }
 
-//        String user_id = request.getParameter("user_id");
         HttpSession userSession = request.getSession(false);
 
         if(amount != null && user.getUser_id() != 0
@@ -71,9 +60,13 @@ public class BuyTicketServlet extends HttpServlet {
                 e.printStackTrace();
             }
             if(status){
+                String path = "/TicketsServlet";
+                ServletContext servletContext = getServletContext();
+                RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(path);
+                requestDispatcher.forward(request, response);
                 out.println("<script>alert('You Have Succesfully Added new Movie !!!')</script>");
                 userSession.setAttribute("message","You Have Succesfully Added new Movie !!!" );
-                response.sendRedirect("admin/AdminHome.jsp");
+//                response.sendRedirect("user/MyTickets.jsp");
             }else{
                 out.println("<script>alert('Error !!! You Have Added duplicate Movie  !!!')</script>");
                 userSession.setAttribute("message","Error !!! You Have Added duplicate Movie !!!" );
@@ -86,23 +79,21 @@ public class BuyTicketServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
-        //        String movieId = request.getParameter("movieId");
-//        Ticket ticket = new Ticket();
-//        Movie movie = new Movie();
-//
-//        if(movieId != null && !(movieId.equals(""))){
-//            try {
-//                movie = new MyDao().selectOne(Integer.parseInt(movieId));
-//                ticket = new MyDao()
-//            } catch (Exception e) {
-//                request.getSession().setAttribute("exception",e.getMessage());
-//            }
-//            request.getSession().setAttribute("movie", movie);
-//            response.sendRedirect("admin/EditMovie.jsp");
-//        }else{
-//            request.getSession().setAttribute("message", "Error !!!! Please select one Category!!!!!!");
-//            response.sendRedirect("admin/AdminHome.jsp");
-//        }
+        String movieId = request.getParameter("movieId");
+        Movie movie = new Movie();
+
+        if(movieId != null && !(movieId.equals(""))){
+            try {
+                movie = new MyDao().selectOne(Integer.parseInt(movieId));
+            } catch (Exception e) {
+                request.getSession().setAttribute("exception",e.getMessage());
+            }
+            request.getSession().setAttribute("movie", movie);
+            response.sendRedirect("user/Order.jsp");
+        }else{
+            request.getSession().setAttribute("message", "Error !!!! Please select one Category!!!!!!");
+            response.sendRedirect("user/Menu.jsp");
+        }
+
     }
 }

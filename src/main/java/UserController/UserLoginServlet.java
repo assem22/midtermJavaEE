@@ -39,7 +39,7 @@ public class UserLoginServlet extends HttpServlet {
 					userSession.setAttribute("userSession", formUsername);
 					userSession.setAttribute("userStatus", "true");
 					userSession.setAttribute("user", "user");
-					response.sendRedirect("user/Menu.jsp");
+					response.sendRedirect("MovieList");
 				} else {
 					userSession.setAttribute("status", "false");
 					forwardUser = getServletContext().getRequestDispatcher("/Login.jsp");

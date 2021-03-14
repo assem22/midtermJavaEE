@@ -36,13 +36,12 @@ public class AdminLoginServlet extends HttpServlet {
 		if (adminUsername != null && adminPassword != null ) {
 			try {
 				if (MyDao.getAdminAuthenticate(adminUsername, adminPassword)) {
-//					if (true) {
 						adminSession = request.getSession(true);
 						adminSession.setAttribute("admin_sessionattr", adminUsername);
 						adminSession.setAttribute("admin_status", "true");
 						adminSession.setAttribute("admin", "admin");
 						adminSession.setAttribute("message", "You have Successfully Logged In.!!!");
-						response.sendRedirect("admin/AdminHome.jsp");
+						response.sendRedirect("GetMovieList");
 					} else {
 						adminSession.setAttribute("admin_status", "false");
 						forwardUser = getServletContext().getRequestDispatcher("/AdminLogin.jsp");

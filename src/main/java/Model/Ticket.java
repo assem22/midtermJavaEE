@@ -75,6 +75,7 @@ public class Ticket {
                 ", movie_name='" + movie_name + '\'' +
                 ", cost=" + cost +
                 ", total_cost=" + total_cost +
+                ", user_id=" + user_id +
                 '}';
     }
 }

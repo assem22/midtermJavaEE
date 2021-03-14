@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName="UserFilter", urlPatterns={"/user/*", "/MovieList"})
+@WebFilter(filterName="UserFilter", urlPatterns={"/user/*", "/MovieList", "/BuyTicketServlet", "/TicketsServlet"})
 public class UserFilter extends UserGenericFilter{
 	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
