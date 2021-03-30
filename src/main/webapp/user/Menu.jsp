@@ -1,5 +1,6 @@
 <%@ page import="Model.Movie" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="Model.User" %><%--
   Created by IntelliJ IDEA.
   User: assemmukhamadi
   Date: 12.03.2021
@@ -31,13 +32,23 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
     </head>
+    <% List<?> movies = (List<?>) request.getSession().getAttribute("movies");%>
+    <%! Movie movie; %>
+
+    <%! User user; %>
     <%
-        List<?> movies = (List<?>) request.getSession().getAttribute("movies");
-        Movie movie = new Movie();
-    %>
+        //        Movie movie = new Movie();
+        user = (User) request.getSession().getAttribute("logged_user");
+        if (user == null) {
+            request.getSession().setAttribute("message",
+                    "Error!!!!!!!! Select Product First.");
+            response.sendRedirect("Login.jsp");
+        }
+        assert user != null;%>
 </head>
-<body>
-<h1>Menu for user</h1>
+<%@ include file = "../bodyStart.jsp" %>
+<h1>Welcome, <%out.print(user.getUsername());%></h1>
+<h1 style="text-align: center">Menu</h1>
 <div align="center" id="edit">
     <table border="1">
         <tr>
@@ -67,5 +78,4 @@
 <a href="../UserLogoutServlet">
     <button type="button">Logout</button>
 </a>
-</body>
-</html>
+<%@ include file = "../footer.jsp" %>

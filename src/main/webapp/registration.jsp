@@ -24,7 +24,7 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </head>
-<body>
+<%@ include file = "bodyStart.jsp" %>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: cornflowerblue">
     <a class="navbar-brand" href="main.jsp">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
@@ -78,5 +78,4 @@
 
 </section>
 <!--Section: Content-->
-</body>
-</html>
+<%@ include file = "footer.jsp" %>

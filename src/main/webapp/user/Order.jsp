@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>Order</title>
+    <%! Movie movie; %>
     <%
-        Movie movie = new Movie();
         movie = (Movie) request.getSession().getAttribute("movie");
         if (movie == null) {
             request.getSession().setAttribute("message",
@@ -19,7 +19,7 @@
         }
         assert movie != null;%>
 </head>
-<body>
+<%@ include file = "../bodyStart.jsp" %>
 <div align="center">
     <h2>Buy Ticket</h2>
 </div>
@@ -49,5 +49,4 @@
         </table>
     </form>
 </div>
-</body>
-</html>
+<%@ include file = "../footer.jsp" %>

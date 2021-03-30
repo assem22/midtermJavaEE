@@ -15,7 +15,7 @@
         Ticket ticket = new Ticket();
     %>
 </head>
-<body>
+<%@ include file = "../bodyStart.jsp" %>
 <div align="center" id="edit">
     <h1>History of buyed tickets</h1>
     <table border="1">
@@ -42,5 +42,4 @@
         %>
     </table>
 </div>
-</body>
-</html>
+<%@ include file = "../footer.jsp" %>

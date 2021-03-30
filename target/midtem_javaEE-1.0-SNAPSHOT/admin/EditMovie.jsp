@@ -1,6 +1,4 @@
-<%@page import="DAO.MyDao"%>
 <%@page	import="Model.Movie"%>
-<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 		 pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -9,9 +7,11 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<title>Product Details</title>
-
+	<%-- Here I used declaration scriptlet to declare Movie object (also I can do it also in
+	statement scriptlet), and here I used comment scriptlet --%>
+	<%! Movie movie; %>
 	<%
-		Movie movie = new Movie();
+//		Movie movie;
 		movie = (Movie) request.getSession().getAttribute("movie");
 		if (movie == null) {
 			request.getSession().setAttribute("message",
@@ -20,7 +20,7 @@
 		}
 		assert movie != null;%>
 </head>
-<body>
+<%@ include file = "../bodyStart.jsp" %>
 <div align="center">
 	<h2>Add New Product</h2>
 </div>
@@ -54,5 +54,5 @@
 		</table>
 	</form>
 </div>
-</body>
-</html>
+<%@ include file = "../footer.jsp" %>
+

@@ -9,13 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>List Categories</title>
-<%--<jsp:include page="AdminBar.jsp" />--%>
-<%
-	List<?> movies = (List<?>) request.getSession().getAttribute("movies");
-	Movie movie = new Movie();
-%>
+	<% List<?> movies = (List<?>) request.getSession().getAttribute("movies");%>
+	<%! Movie movie; %>
 </head>
-<body>
+<%@ include file = "../bodyStart.jsp" %>
 	<div align="center" id="edit">
 		<table border="1">
 			<tr>
@@ -47,5 +44,5 @@
 			%>
 		</table>
 	</div>
-</body>
-</html>
+	<%@ include file = "../footer.jsp" %>
+

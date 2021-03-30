@@ -3,6 +3,7 @@ package UserController;
 
 
 import DAO.MyDao;
+import Model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,10 +36,12 @@ public class UserLoginServlet extends HttpServlet {
 		if (formUsername != null && formPassword != null ) {
 			try {
 				if (MyDao.getUserAuthenticate(formUsername, formPassword)) {
+					User user = new MyDao().selectUser(formUsername);
 					userSession = request.getSession(true);
 					userSession.setAttribute("userSession", formUsername);
 					userSession.setAttribute("userStatus", "true");
 					userSession.setAttribute("user", "user");
+					request.getSession().setAttribute("logged_user", user);
 					response.sendRedirect("MovieList");
 				} else {
 					userSession.setAttribute("status", "false");
