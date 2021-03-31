@@ -9,7 +9,8 @@ public class Movie {
 
     private int movieYear;
 
-    public Movie(){}
+    public Movie(){
+    }
 
     public Movie(int movieId, String movieName, double moviePrice, int movieYear) {
         this.movieId = movieId;

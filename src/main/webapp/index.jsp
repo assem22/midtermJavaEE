@@ -5,8 +5,7 @@
   Time: 18:59
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -32,7 +31,11 @@
 
 <body>
 <h1>Menu for all</h1>
-
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
+<%--<h1><c:import var="data" url="http://www.javatpoint.com"/></h1>--%>
+<%--<c:out value="${'data'}"/>--%>
+<%--<%@ taglib uri="/WEB-INF/mytags.tld" prefix="m" %>--%>
+<%--Current Date and Time is: <m:today/>--%>
 <h2><a href="AdminLogin.jsp">Login as admin</a></h2>
 <h2><a href="Login.jsp">Login as user</a></h2>
 </body>

@@ -49,4 +49,4 @@
         </table>
     </form>
 </div>
-<%@ include file = "../footer.jsp" %>
+<jsp:include page="../footer.jsp"/>

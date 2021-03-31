@@ -9,16 +9,17 @@
 <html>
 <head>
     <title>Detail Movie</title>
-    <%! Movie movie; %>
-    <%
-//        Movie movie = new Movie();
-        movie = (Movie) request.getSession().getAttribute("movie");
-        if (movie == null) {
-            request.getSession().setAttribute("message",
-                    "Error!!!!!!!! Select Product First.");
-            response.sendRedirect("Menu.jsp");
-        }
-        assert movie != null;%>
+<%--    <%! Movie movie; %>--%>
+    <jsp:useBean id="movie" class="Model.Movie" scope="session"/>
+<%--    <%--%>
+<%--//        Movie movie = new Movie();--%>
+<%--        movie = (Movie) request.getSession().getAttribute("movie");--%>
+<%--        if (movie == null) {--%>
+<%--            request.getSession().setAttribute("message",--%>
+<%--                    "Error!!!!!!!! Select Product First.");--%>
+<%--            response.sendRedirect("Menu.jsp");--%>
+<%--        }--%>
+<%--        assert movie != null;%>--%>
 </head>
 <%@ include file = "../bodyStart.jsp" %>
 <div align="center">
@@ -29,28 +30,27 @@
         <table align="center">
             <tr>
                 <td>Movie Id :</td>
-                <td><%=movie.getMovieId()%></td>
+                <td><jsp:getProperty name="movie" property="movieId"/></td>
             </tr>
             <tr>
                 <td>Movie Name :</td>
-                <td><%=movie.getMovieName()%></td>
+                <td><jsp:getProperty name="movie" property="movieName"/></td>
             </tr>
             <tr>
                 <td>Movie Price :</td>
-                <td><%=movie.getMoviePrice()%></td>
+                <td><jsp:getProperty name="movie" property="moviePrice"/></td>
             </tr>
             <tr>
                 <td>Movie Year :</td>
-                <td><%=movie.getMovieYear()%></td>
+                <td><jsp:getProperty name="movie" property="movieYear"/></td>
             </tr>
             <tr>
                 <td align="center"><a
-                        href="../BuyTicketServlet?movieId=<%=movie.getMovieId()%>">
+                        href="../BuyTicketServlet?movieId=<jsp:getProperty name="movie" property="movieId"/>">
                     <button type="button">Buy Tickets</button>
                 </a></td>
             </tr>
         </table>
     </form>
 </div>
-<%@ include file = "../footer.jsp" %>
-
+<jsp:include page="../footer.jsp"/>
