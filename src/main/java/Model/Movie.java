@@ -1,6 +1,8 @@
 package Model;
 
-public class Movie {
+import java.io.Serializable;
+
+public class Movie implements Serializable {
     private int movieId;
 
     private String movieName;
@@ -12,12 +14,12 @@ public class Movie {
     public Movie(){
     }
 
-    public Movie(int movieId, String movieName, double moviePrice, int movieYear) {
-        this.movieId = movieId;
-        this.movieName = movieName;
-        this.moviePrice = moviePrice;
-        this.movieYear = movieYear;
-    }
+//    public Movie(int movieId, String movieName, double moviePrice, int movieYear) {
+//        this.movieId = movieId;
+//        this.movieName = movieName;
+//        this.moviePrice = moviePrice;
+//        this.movieYear = movieYear;
+//    }
 
     public int getMovieId() {
         return movieId;

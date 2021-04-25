@@ -26,7 +26,11 @@ public class MyDao {
                     int id = resultSet.getInt(1);
                     String username = resultSet.getString(2);
                     String password = resultSet.getString(3);
-                    Admin admin = new Admin(id, username, password);
+//                    Admin admin = new Admin(id, username, password);
+                    Admin admin = new Admin();
+                    admin.setAdminId(id);
+                    admin.setAdminUsername(username);
+                    admin.setAdminPassword(password);
                     admins.add(admin);
                 }
             }
@@ -57,7 +61,12 @@ public class MyDao {
                     String user_username = resultSet.getString(2);
                     String password = resultSet.getString(3);
                     String user_email = resultSet.getString(4);
-                    User user = new User(id, user_username, password, user_email);
+//                    User user = new User(id, user_username, password, user_email);
+                    User user = new User();
+                    user.setUser_id(id);
+                    user.setUsername(user_username);
+                    user.setUser_password(password);
+                    user.setEmail(user_email);
                     users.add(user);
                 }
             }
@@ -111,7 +120,12 @@ public class MyDao {
                     String name = resultSet.getString(2);
                     double price = resultSet.getInt(3);
                     int year = resultSet.getInt(4);
-                    Movie movie = new Movie(id, name, price, year);
+//                    Movie movie = new Movie(id, name, price, year);
+                    Movie movie = new Movie();
+                    movie.setMovieId(id);
+                    movie.setMovieName(name);
+                    movie.setMoviePrice(price);
+                    movie.setMovieYear(year);
                     movies.add(movie);
                 }
             }
@@ -138,7 +152,14 @@ public class MyDao {
                     double price = resultSet.getDouble(4);
                     double total = resultSet.getDouble(5);
                     int userId = resultSet.getInt(6);
-                    Ticket ticket = new Ticket(id, amount, movieName, price, total, userId);
+//                    Ticket ticket = new Ticket(id, amount, movieName, price, total, userId);
+                    Ticket ticket = new Ticket();
+                    ticket.setTicket_id(id);
+                    ticket.setAmount(amount);
+                    ticket.setMovie_name(movieName);
+                    ticket.setCost(price);
+                    ticket.setTotal_cost(total);
+                    ticket.setUser_id(userId);
                     tickets.add(ticket);
                 }
             }
@@ -166,7 +187,12 @@ public class MyDao {
                         String name = resultSet.getString(2);
                         double price = resultSet.getInt(3);
                         int year = resultSet.getInt(4);
-                        movie = new Movie(movId, name, price, year);
+//                        movie = new Movie(movId, name, price, year);
+                        movie = new Movie();
+                        movie.setMovieId(movId);
+                        movie.setMovieName(name);
+                        movie.setMoviePrice(price);
+                        movie.setMovieYear(year);
                     }
                 }
             }
@@ -289,7 +315,12 @@ public class MyDao {
                         String name = resultSet.getString(2);
                         String user_password = resultSet.getString(3);
                         String userEmail = resultSet.getString(4);
-                        user1 = new User(userId, name, user_password, userEmail);
+//                        user1 = new User(userId, name, user_password, userEmail);
+                        user1 = new User();
+                        user1.setUser_id(userId);
+                        user1.setUsername(name);
+                        user1.setUser_password(user_password);
+                        user1.setEmail(userEmail);
                     }
                 }
             }

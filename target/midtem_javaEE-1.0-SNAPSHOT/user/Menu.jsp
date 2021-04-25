@@ -78,4 +78,4 @@
 <a href="../UserLogoutServlet">
     <button type="button">Logout</button>
 </a>
-<%@ include file = "../footer.jsp" %>
+<jsp:include page="../footer.jsp"/>

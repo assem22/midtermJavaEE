@@ -1,6 +1,8 @@
 package Model;
 
-public class Ticket {
+import java.io.Serializable;
+
+public class Ticket implements Serializable {
     private int ticket_id;
     private int amount;
     private String movie_name;
@@ -10,14 +12,14 @@ public class Ticket {
 
     public Ticket(){}
 
-    public Ticket(int ticket_id, int amount, String movie_name, double cost, double total_cost, int user_id) {
-        this.ticket_id = ticket_id;
-        this.amount = amount;
-        this.movie_name = movie_name;
-        this.cost = cost;
-        this.total_cost = total_cost;
-        this.user_id = user_id;
-    }
+//    public Ticket(int ticket_id, int amount, String movie_name, double cost, double total_cost, int user_id) {
+//        this.ticket_id = ticket_id;
+//        this.amount = amount;
+//        this.movie_name = movie_name;
+//        this.cost = cost;
+//        this.total_cost = total_cost;
+//        this.user_id = user_id;
+//    }
 
     public int getUser_id() {
         return user_id;
