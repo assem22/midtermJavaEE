@@ -21,8 +21,9 @@
 		assert movie != null;%>
 </head>
 <%@ include file = "../bodyStart.jsp" %>
+<%@ include file="Logout.jsp"%>
 <div align="center">
-	<h2>Add New Product</h2>
+	<h2>Update Movie</h2>
 </div>
 <div>
 	<form action="../EditMovieServlet" method="post">

@@ -21,12 +21,10 @@
         assert admin != null;%>
 </head>
 <%@ include file = "../bodyStart.jsp" %>
+<%@ include file="Logout.jsp"%>
 <h1>Admin Home Page</h1>
 <h1>My Login: <%out.print(admin);%></h1>
     <li><a href="AddMovie.jsp">New Movie</a></li>
     <li><a href="ListMovies.jsp">List Movie</a></li>
-    <a href="../AdminLogoutServlet">
-        <button type="button">Logout</button>
-    </a>
 <%@ include file = "../footer.jsp" %>
 

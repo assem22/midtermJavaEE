@@ -31,7 +31,7 @@
 
 <%@ include file = "bodyStart.jsp" %>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: cornflowerblue">
-    <a class="navbar-brand" href="main.jsp">Home</a>
+    <a class="navbar-brand" href="index.jsp">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
             aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -60,7 +60,8 @@
 
         <div class="text-center">
             <button type="submit" class="btn btn-elegant">Sign in</button>
-            <a href="registration.jsp" class="register" style="text-decoration: none;">Register</a>
+            <br>
+            <a href="registration.jsp" class="register" style="color: aliceblue">Register</a>
         </div>
     </form>
 </section>

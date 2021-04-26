@@ -20,6 +20,7 @@
         assert movie != null;%>
 </head>
 <%@ include file = "../bodyStart.jsp" %>
+<%@ include file="../user/Logout.jsp"%>
 <div align="center">
     <h2>Buy Ticket</h2>
 </div>

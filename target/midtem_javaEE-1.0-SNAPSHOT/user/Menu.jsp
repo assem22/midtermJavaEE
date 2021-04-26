@@ -47,6 +47,7 @@
         assert user != null;%>
 </head>
 <%@ include file = "../bodyStart.jsp" %>
+<%@ include file="../user/Logout.jsp"%>
 <h1>Welcome, <%out.print(user.getUsername());%></h1>
 <h1 style="text-align: center">Menu</h1>
 <div align="center" id="edit">
@@ -63,7 +64,7 @@
         %>
         <tr>
             <td align="center"><%=movie.getMovieName()%></td>
-            <td align="center">Rs. <%=movie.getMoviePrice()%></td>
+            <td align="center"><%=movie.getMoviePrice()%></td>
             <td align="center"><%=movie.getMovieYear()%></td>
             <td align="center"><a
                     href="../MovieDetailServlet?movieId=<%=movie.getMovieId()%>">
@@ -75,7 +76,4 @@
         %>
     </table>
 </div>
-<a href="../UserLogoutServlet">
-    <button type="button">Logout</button>
-</a>
 <jsp:include page="../footer.jsp"/>

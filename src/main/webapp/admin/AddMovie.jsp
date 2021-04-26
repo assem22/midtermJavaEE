@@ -11,22 +11,23 @@
 <title>Movie Details</title>
 </head>
 <%@ include file = "../bodyStart.jsp" %>
+	<%@ include file="Logout.jsp"%>
 	<div align="center">
-		<h2>Add New Product</h2>
+		<h2>Add New Movie</h2>
 	</div>
 	<div>
 		<form action="../AddMovieServlet" method="post">
 			<table align="center">
 				<tr>
-					<td>Product Name :</td>
+					<td>Movie Name :</td>
 					<td><input type="text" name="movie_name" required="true" /></td>
 				</tr>
 				<tr>
-					<td>Product Price :</td>
+					<td>Movie Price :</td>
 					<td><input type="text" name="movie_price" required="true" pattern="[0-9.]+"/></td>
 				</tr>
 				<tr>
-					<td>Product Description :</td>
+					<td>Movie Year :</td>
 					<td><input type="text" name="movie_year" required="true"/></td>
 				</tr>
 				<tr>

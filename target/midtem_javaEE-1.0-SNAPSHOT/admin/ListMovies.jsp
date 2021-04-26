@@ -1,7 +1,11 @@
 <%@page import="java.util.List"%>
  <%@ page import="java.io.*" %>
 <%@ page import="Model.Movie" %>
-<META HTTP-EQUIV="Refresh" CONTENT="5">
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="DAO.MyDao" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,11 +13,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>List Categories</title>
-	<% List<?> movies = (List<?>) request.getSession().getAttribute("movies");%>
 	<%! Movie movie; %>
+	<%
+		MyDao myDao = new MyDao();
+		List<?> movies = myDao.select();
+	%>
 </head>
 <%@ include file = "../bodyStart.jsp" %>
+<%@ include file="Logout.jsp"%>
 	<div align="center" id="edit">
+		<h1>Movies</h1>
 		<table border="1">
 			<tr>
 				<th width="150">Movie Name</th>

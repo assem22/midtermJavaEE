@@ -16,6 +16,7 @@
     %>
 </head>
 <%@ include file = "../bodyStart.jsp" %>
+<%@ include file="../user/Logout.jsp"%>
 <div align="center" id="edit">
     <h1>History of buyed tickets</h1>
     <table border="1">
