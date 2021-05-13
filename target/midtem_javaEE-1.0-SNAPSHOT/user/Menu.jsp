@@ -48,15 +48,19 @@
 </head>
 <%@ include file = "../bodyStart.jsp" %>
 <%@ include file="../user/Logout.jsp"%>
-<h1>Welcome, <%out.print(user.getUsername());%></h1>
-<h1 style="text-align: center">Menu</h1>
 <div align="center" id="edit">
-    <table border="1">
+    <h3 class="text-center font-weight-bold text-white text-uppercase pb-2 mb-4"
+        style="margin-top: 100px">Movies</h3>
+    <hr class="w-header my-4 white">
+    <!-- Section description -->
+    <h3 class="lead text-center text-white pt-2 mb-5">Welcome, <%out.print(user.getUsername());%></h3>
+    <div class="container p-3" style="background-color: white">
+    <table class="table align-middle">
         <tr>
-            <th width="150">Movie Name</th>
-            <th width="100">Movie Price</th>
-            <th width="200">Movie Year</th>
-            <th width="80">Detail</th>
+            <th width="150" scope="col">Movie Name</th>
+            <th width="100" scope="col">Movie Price</th>
+            <th width="200" scope="col">Movie Year</th>
+            <th width="80" scope="col">Detail</th>
         </tr>
         <%
             for (Object obj : movies) {
@@ -68,12 +72,13 @@
             <td align="center"><%=movie.getMovieYear()%></td>
             <td align="center"><a
                     href="../MovieDetailServlet?movieId=<%=movie.getMovieId()%>">
-                <button type="button">Detail</button>
+                <button type="button" class="btn btn-danger btn-sm px-3"><i class="fas fa-info-circle"></i></button>
             </a></td>
         </tr>
         <%
             }
         %>
     </table>
+    </div>
 </div>
 <jsp:include page="../footer.jsp"/>
