@@ -25,7 +25,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </head>
 <%@ include file = "bodyStart.jsp" %>
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: cornflowerblue">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="main.jsp">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
             aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
 </nav>
 
 <section class="p-5  text-center"
-         style="background-size: cover; background-color: cornflowerblue; height: 810px">
+         style="background-size: cover; height: 810px">
 
     <!-- Section heading -->
     <h3 class="text-center font-weight-bold text-white text-uppercase pb-2 mb-4"

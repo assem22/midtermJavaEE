@@ -29,14 +29,20 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </head>
 
-<body>
-<h1>Menu for all</h1>
-<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
-<%--<h1><c:import var="data" url="http://www.javatpoint.com"/></h1>--%>
-<%--<c:out value="${'data'}"/>--%>
-<%--<%@ taglib uri="/WEB-INF/mytags.tld" prefix="m" %>--%>
-<%--Current Date and Time is: <m:today/>--%>
-<h2><a href="AdminLogin.jsp">Login as admin</a></h2>
-<h2><a href="Login.jsp">Login as user</a></h2>
+<%--<body style="background-image: url('https://audiokaif.ru/wp-content/uploads/2020/01/Популярные-Кинокомпании-1024x576.jpg')">--%>
+<body style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg')">
+<%--<body style="background-image: url('https://www.teahub.io/photos/full/220-2205714_get-the-latest-movies-data-src-kodi-tv.jpg')">--%>
+<%--<body style="background-image: url('https://rozetked.me/images/uploads/EjInsjCAt7xA.jpg')">--%>
+    <div class="container py-3 z-depth-1 rounded" style="margin-top: 200px; margin-bottom: 100px; background-color: aliceblue">
+        <section class="dark-grey-text">
+            <h1 class="text-center font-weight-bold pb-2">Welcome!</h1>
+            <hr style="width: 200px">
+            <h5 class="text-center text-muted w-responsive mx-auto mb-5 mt-4">Sign in as</h5>
+            <div class="d-grid gap-2 d-md-block" style="text-align: center">
+                <a class="btn btn-primary" href="AdminLogin.jsp">admin</a>
+                <a class="btn btn-primary" href="Login.jsp">user</a>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

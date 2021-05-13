@@ -30,7 +30,7 @@
 </head>
 
 <%@ include file = "bodyStart.jsp" %>
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: cornflowerblue">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="index.jsp">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
             aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,7 @@
 
 <!--Section: Content-->
 <section class="p-5  text-center"
-         style="background-size: cover; background-color: cornflowerblue; height: 810px">
+         style="background-size: cover; height: 810px">
 
     <!-- Section heading -->
     <h3 class="text-center font-weight-bold text-white text-uppercase pb-2 mb-4" style="margin-top: 100px">Sign in</h3>
