@@ -40,37 +40,6 @@
 </head>
 <%@ include file = "../bodyStart.jsp" %>
 <%@ include file="../user/Logout.jsp"%>
-<%--<div align="center">--%>
-<%--    <h2>Movie Detail</h2>--%>
-<%--</div>--%>
-<%--<div>--%>
-<%--    <form action="../MovieDetailServlet" method="post">--%>
-<%--        <table align="center">--%>
-<%--            <tr>--%>
-<%--                <td>Movie Id :</td>--%>
-<%--                <td><jsp:getProperty name="movie" property="movieId"/></td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td>Movie Name :</td>--%>
-<%--                <td><jsp:getProperty name="movie" property="movieName"/></td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td>Movie Price :</td>--%>
-<%--                <td><jsp:getProperty name="movie" property="moviePrice"/></td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td>Movie Year :</td>--%>
-<%--                <td><jsp:getProperty name="movie" property="movieYear"/></td>--%>
-<%--            </tr>--%>
-<%--            <tr>--%>
-<%--                <td align="center"><a--%>
-<%--                        href="../BuyTicketServlet?movieId=<jsp:getProperty name="movie" property="movieId"/>">--%>
-<%--                    <button type="button">Buy Tickets</button>--%>
-<%--                </a></td>--%>
-<%--            </tr>--%>
-<%--        </table>--%>
-<%--    </form>--%>
-<%--</div>--%>
 <section class="text-center"
          style="background-size: cover; height: 810px">
 
